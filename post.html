@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dracula's blog</title>
+
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <script src="js/jquery-1.11.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      var post = {
+        title: 'I love blood!',
+        body: 'It is so delicious.'
+      };
+
+      $('h1').text(post.title);
+      $('#view p').text(post.body);
+      $('input#title').val(post.title);
+      $('textarea#body').val(post.body);
+
+      $('#start-editing').click(function() {
+        $('#view').hide();
+        $('#edit').show();
+      });
+
+      $('#edit form').submit(function(event) {
+        event.preventDefault();
+
+        post.title = $('input#title').val();
+        post.body = $('textarea#body').val();
+
+        $('h1').text(post.title);
+        $('#view p').text(post.body);
+        $('input#title').val(post.title);
+        $('textarea#body').val(post.body);
+
+        $('#edit').hide();
+        $('#view').show();
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <div class='container'>
+    <nav class='navbar navbar-default' role='navigation'>
+      <ul class='nav navbar-nav'>
+        <li><a href='#'>Posts</a></li>
+        <li><a href='#'>Recent comments</a></li>
+        <li><a href='#'>About</a></li>
+        <li><a href='#'>Contact</a></li>
+      </ul>
+    </nav>
+
+    <h1></h1>
+
+    <div id='view'>
+      <p></p>
+
+      <button class="btn btn-primary" id='start-editing'>Edit</button>
+    </div>
+
+
+    <div id='edit' style='display:none'>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="body">Body</label>
+          <textarea id="body" class="form-control" rows="15"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
