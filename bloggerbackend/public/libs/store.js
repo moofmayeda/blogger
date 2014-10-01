@@ -1,2 +1,2 @@
 Blogger.ApplicationSerializer = DS.LSSerializer.extend();
-Blogger.ApplicationAdapter = DS.LSAdapter.extend();
+Blogger.ApplicationAdapter = DS.ActiveModelAdapter.extend();
