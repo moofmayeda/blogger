@@ -6,6 +6,7 @@ Blogger.PostController = Ember.ObjectController.extend({
     },
     save: function() {
       this.set('isEditing', false);
+      this.get('model').save();
     },
     delete: function() {
       if(confirm('Are you sure?')) {

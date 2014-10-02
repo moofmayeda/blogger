@@ -20,6 +20,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      render :json => @post, :status => 201
+    else
+      render :json => @post.errors, :status => 401
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
